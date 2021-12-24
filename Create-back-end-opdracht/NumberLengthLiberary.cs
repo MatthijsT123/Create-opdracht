@@ -109,16 +109,27 @@ namespace Create_back_end_opdracht
             { 100, ConstString.honderd},
         };
 
-        public Dictionary<int, string> GetNumbers()
+        internal Dictionary<int, string> GetNumbers()
         {
             return numbers;
         }
 
-        public Dictionary<int, string> GetNumbersSection(int beginPoint, int endPoint)
+        internal List<KeyValuePair<int, string>> GetNumbersSection(int beginPoint, int endPoint)
         {
-            int test2 = 0;
-            var test = numbers.Where(n => n.Key > beginPoint && n.Key < endPoint).ToList().ToList();
-            test.ForEach(n => test2 += n.Value.FirstOrDefault().ToString().Length);
+            if(beginPoint < 0 || beginPoint > 99) return null;
+            if(endPoint < 1 || endPoint > 100) return null;
+
+            return numbers.Where(n => n.Key >= beginPoint && n.Key <= endPoint).ToList().ToList();
+        }
+
+        internal int GetTotalAmountOfCharacters(int beginPoint, int endPoint)
+        {
+            int totalAmountOfCharacters = 0;
+
+            List<KeyValuePair<int, string>> listOfNumbers = GetNumbersSection(beginPoint, endPoint);
+
+            listOfNumbers.ForEach( n => totalAmountOfCharacters += n.Value.ToString().Length);
+            return totalAmountOfCharacters;
         }
 
     }

@@ -10,9 +10,12 @@ namespace Create_back_end_opdracht
 
         public static void Main(string[] args)
         {
-            var test = _numberLengthLiberary.GetNumbers();
-            test.Where(n => n.Key < 10 && n.Key > 50);
+            
             Console.WriteLine("Hello World!");
+            int oneToFive = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 5);
+            Console.WriteLine("1 tot 5 is: " + oneToFive);
+            int oneToHunderd = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 100);
+            Console.WriteLine("1 tot 100 is: " + oneToHunderd);
         }
     }
 }
