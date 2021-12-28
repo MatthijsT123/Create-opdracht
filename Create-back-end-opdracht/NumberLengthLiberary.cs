@@ -63,7 +63,7 @@
         internal List<KeyValuePair<int, string>> GetNumbersSection(int beginPoint, int endPoint)
         {
             if(beginPoint < 0 || beginPoint >= endPoint) return null;
-            if(endPoint < 1 || endPoint >= _numbers.Count()) return null;
+            if(endPoint < 1 || endPoint >= _numbers.Count() + 1) return null;
 
             return _numbers.Where(n => n.Key >= beginPoint && n.Key <= endPoint).ToList().ToList();
         }
