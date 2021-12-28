@@ -2,6 +2,10 @@
 {
     internal class NumberLengthLiberary
     {   
+        public NumberLengthLiberary()
+        {
+            GenerateNumbers();
+        }
 
         private readonly Dictionary<int, string> _numbersOneToNine = new Dictionary<int, string>()
         {
@@ -58,8 +62,8 @@
 
         internal List<KeyValuePair<int, string>> GetNumbersSection(int beginPoint, int endPoint)
         {
-            if(beginPoint < 0 || beginPoint > 99) return null;
-            if(endPoint < 1 || endPoint > 100) return null;
+            if(beginPoint < 0 || beginPoint >= endPoint) return null;
+            if(endPoint < 1 || endPoint >= _numbers.Count()) return null;
 
             return _numbers.Where(n => n.Key >= beginPoint && n.Key <= endPoint).ToList().ToList();
         }
@@ -70,11 +74,13 @@
 
             List<KeyValuePair<int, string>> listOfNumbers = GetNumbersSection(beginPoint, endPoint);
 
+            if(listOfNumbers == null) return 0;
+
             listOfNumbers.ForEach( n => totalAmountOfCharacters += n.Value.ToString().Length);
             return totalAmountOfCharacters;
         }
 
-        internal void GenerateNumbers()
+        private void GenerateNumbers()
         {
             for (int i = 100; i > 20; i--)
             {
