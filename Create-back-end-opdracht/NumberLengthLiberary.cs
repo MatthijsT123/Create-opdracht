@@ -47,6 +47,7 @@
             { 90, "negentig"},
             { 100, "honderd"},
             { 1000, "duizend"},
+            { 1000000, "miljoen" },
         };
 
 
@@ -95,6 +96,18 @@
                 else
                 {
                     _numbers.Add(i, _numbers.GetValueOrDefault(i - (i % 100)) + _numbers.GetValueOrDefault(i % 100));
+                }
+            }
+
+            for(int i = 1001; i < 1000000; i++)
+            {
+                if (i % 1000 == 0)
+                {
+                    _numbers.Add(i, _numbers.GetValueOrDefault(i / 1000) + _numbers.GetValueOrDefault(1000) + _numbers.GetValueOrDefault(i));
+                }
+                else
+                {
+                    _numbers.Add(i, _numbers.GetValueOrDefault(i - (i % 1000)) + " " + _numbers.GetValueOrDefault(i % 1000));
                 }
             }
         }
