@@ -1,21 +1,19 @@
-﻿using Create_back_end_opdracht.Helper;
-
-namespace Create_back_end_opdracht
+﻿namespace Create_back_end_opdracht
 {
     internal class NumberLengthLiberary
     {   
 
         private readonly Dictionary<int, string> _numbersOneToNine = new Dictionary<int, string>()
         {
-            { 1, ConstString.eenen},
-            { 2, ConstString.tweeën},
-            { 3, ConstString.drieën},
-            { 4, ConstString.vieren},
-            { 5, ConstString.vijfen},
-            { 6, ConstString.zesen},
-            { 7, ConstString.zevenen},
-            { 8, ConstString.achten},
-            { 9, ConstString.negenen},
+            { 1, "eenen"},
+            { 2, "tweeën"},
+            { 3, "drieën"},
+            { 4, "vieren"},
+            { 5, "vijfen"},
+            { 6, "zesen"},
+            { 7, "zevenen"},
+            { 8, "achten"},
+            { 9, "negenen"},
         };
 
         private readonly Dictionary<int, string> _numbers = new Dictionary<int, string>()
@@ -39,15 +37,16 @@ namespace Create_back_end_opdracht
             { 17, "zeventien"},
             { 18, "achttien"},
             { 19, "negentien"},
-            { 20, ConstString.twintig},
-            { 30, ConstString.dertig},
-            { 40, ConstString.veertig},
-            { 50, ConstString.vijftig},
-            { 60, ConstString.zestig},
-            { 70, ConstString.zeventig},
-            { 80, ConstString.tachtig},
-            { 90, ConstString.negentig},
-            { 100, ConstString.honderd},
+            { 20, "twintig"},
+            { 30, "dertig"},
+            { 40, "veertig"},
+            { 50, "vijftig"},
+            { 60, "zestig"},
+            { 70, "zeventig"},
+            { 80, "tachtig"},
+            { 90, "negentig"},
+            { 100, "honderd"},
+            { 1000, "duizend"},
         };
 
 
@@ -78,15 +77,26 @@ namespace Create_back_end_opdracht
         {
             for (int i = 100; i > 20; i--)
             {
-                if(i % 100 != 0)
+                if (i % 100 != 0)
                 {
-                    if(i % 10 != 0)
+                    if (i % 10 != 0)
                     {
                         _numbers.Add(i, _numbersOneToNine.GetValueOrDefault(i % 10) + _numbers.GetValueOrDefault(i - (i % 10)));
                     }
                 }
             }
-        }
 
+            for (int i = 101; i < 1000; i++)
+            {
+                if (i % 100 == 0)
+                {
+                    _numbers.Add(i, _numbers.GetValueOrDefault(i / 100) + _numbers.GetValueOrDefault(100) + _numbers.GetValueOrDefault(i));
+                }
+                else
+                {
+                    _numbers.Add(i, _numbers.GetValueOrDefault(i - (i % 100)) + _numbers.GetValueOrDefault(i % 100));
+                }
+            }
+        }
     }
 }

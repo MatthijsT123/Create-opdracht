@@ -10,6 +10,7 @@
             Console.WriteLine("1 t/m 5: " + oneToFive + " letters.");
             int oneToHunderd = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 100);
             Console.WriteLine("1 t/m 100: " + oneToHunderd + " letters.");
+            Console.WriteLine(900 / 100);
             _numberLengthLiberary.GenerateNumbers();
         }
     }
