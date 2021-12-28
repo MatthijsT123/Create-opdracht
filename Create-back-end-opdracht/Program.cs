@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Create_back_end_opdracht
+﻿namespace Create_back_end_opdracht
 {
     public class Program
     {
@@ -10,12 +6,11 @@ namespace Create_back_end_opdracht
 
         public static void Main(string[] args)
         {
-            
-            Console.WriteLine("Hello World!");
             int oneToFive = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 5);
-            Console.WriteLine("1 tot 5 is: " + oneToFive);
+            Console.WriteLine("1 t/m 5: " + oneToFive + " letters.");
             int oneToHunderd = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 100);
-            Console.WriteLine("1 tot 100 is: " + oneToHunderd);
+            Console.WriteLine("1 t/m 100: " + oneToHunderd + " letters.");
+            _numberLengthLiberary.GenerateNumbers();
         }
     }
 }
