@@ -17,8 +17,7 @@
             int oneToHundredThousand = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 100000);
             Console.WriteLine("1 t/m 100000: " + oneToHundredThousand + " letters.");
             int oneToMillion = _numberLengthLiberary.GetTotalAmountOfCharacters(1, 1000000);
-            Console.WriteLine("1 t/m 1000000: " + oneToMillion + " letters.");
-            
+            Console.WriteLine("1 t/m 1000000: " + oneToMillion + " letters.");            
         }
     }
 }

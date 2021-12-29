@@ -76,7 +76,13 @@
 
             if(listOfNumbers == null) return 0;
 
-            listOfNumbers.ForEach( n => totalAmountOfCharacters += n.Value.ToString().Length);
+            foreach (KeyValuePair<int, string> numberItem in listOfNumbers)
+            {
+               string numberValue = numberItem.Value.ToString();
+               string numberValueWithoutSpaces = String.Concat(numberValue.Where(c => !Char.IsWhiteSpace(c)));
+               totalAmountOfCharacters += numberValueWithoutSpaces.Length;
+            }
+
             return totalAmountOfCharacters;
         }
 
